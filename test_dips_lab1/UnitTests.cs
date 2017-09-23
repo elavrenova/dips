@@ -10,25 +10,27 @@ namespace test_dips_lab1
         [TestMethod]
         public void TestEmptyName()
         {
-            var controller = new ValuesController();
-            Assert.AreEqual(controller.Get(5,null),"Somebody has 5 cats");
+            var contr = new ValuesController();
+            Assert.AreEqual(contr.GetString(5,null),"Somebody has 5 cats");
+            var test = contr.Method();
+            
         }
 
         public void TestZeroQuantityEmptyName()
         {
             var controller = new ValuesController();
-            Assert.AreEqual(controller.Get(0, null), "Somebody doesn't have any cats");
+            Assert.AreEqual(controller.GetString(0, null), "Somebody doesn't have any cats");
         }
 
         public void TestQuantityEmptyName()
         {
             var controller = new ValuesController();
-            Assert.AreEqual(controller.Get(2, null), "Somebody has 2 cats");
+            Assert.AreEqual(controller.GetString(2, null), "Somebody has 2 cats");
         }
         public void TestQuantityName()
         {
             var controller = new ValuesController();
-            Assert.AreEqual(controller.Get(3, "Mary"), "Mary has 3 cats");
+            Assert.AreEqual(controller.GetString(3, "Mary"), "Mary has 3 cats");
         }
     }
 }

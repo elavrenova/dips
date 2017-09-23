@@ -10,7 +10,7 @@ namespace dips_lab1.Controllers
     public class ValuesController : Controller
     {
     // GET api/values
-    [HttpGet]
+    /[HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] {"value1", "value2"};
@@ -18,7 +18,7 @@ namespace dips_lab1.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id, [FromQuery] string name)
+        public string GetString(int id, [FromQuery] string name)
         {
             if (String.IsNullOrWhiteSpace(name))
                 name = "Somebody";
@@ -26,6 +26,11 @@ namespace dips_lab1.Controllers
                 return name + " doesn't have any cats";
             else
                 return name + " has " + id + " cats";
+        }
+
+        public string Method()
+        {
+            return "haha";
         }
 
         // POST api/values
