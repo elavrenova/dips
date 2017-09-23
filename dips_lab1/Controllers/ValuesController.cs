@@ -9,18 +9,23 @@ namespace dips_lab1.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        // GET api/values
-        [HttpGet]
+    // GET api/values
+    [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] {"value1", "value2"};
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string Get(int id, [FromQuery] string name)
         {
-            return "value";
+            if (String.IsNullOrWhiteSpace(name))
+                name = "Somebody";
+            if (id == 0)
+                return name + " doesn't have any cats";
+            else
+                return name + " has " + id + " cats";
         }
 
         // POST api/values
